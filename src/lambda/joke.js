@@ -12,7 +12,7 @@ export async function handler(event, context) {
         'content-type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ msg: data.joke.toUpperCase() })
+      body: JSON.stringify({ msg: data.joke })
     }
   } catch (err) {
     console.log(err) // output to netlify function log
