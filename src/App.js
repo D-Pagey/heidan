@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
-  // const [state, setState] = useState('');  
+  const [joke, setJoke] = useState('joke incoming...');    
+
+  const getJoke = async () => {
+    const response = await axios.get('https://heidan.netlify.com/.netlify/functions/joke') // localhost if local, or heidan.netlfy.com if not local
+    setJoke(response.data.msg);
+  }
 
   useEffect(() => {
-    fetch('http://localhost:9000/hello')
-      .then((response) => {
-      console.log(response);
-  })
+    getJoke();
   }, [])
 
   return (
@@ -18,9 +20,11 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hey Heidi {'<3'} you r beautiful</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        
+        
+        <p>{joke}</p>
+
+
         <a
           className="App-link"
           href="https://reactjs.org"

@@ -8,7 +8,11 @@ export async function handler(event, context) {
     const data = response.data
     return {
       statusCode: 200,
-      body: JSON.stringify({ msg: data.joke })
+      headers: {
+        'content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({ msg: data.joke.toUpperCase() })
     }
   } catch (err) {
     console.log(err) // output to netlify function log
