@@ -8,7 +8,7 @@ const App = () => {
   const [joke, setJoke] = useState('joke incoming...');    
 
   const getJoke = async () => {
-    const response = await axios.get('https://heidan.netlify.com/.netlify/functions/joke') // localhost if local, or heidan.netlfy.com if not local
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/joke`);
     setJoke(response.data.msg);
   }
 
