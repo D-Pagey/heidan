@@ -8,7 +8,7 @@ const App = () => {
   const [joke, setJoke] = useState('joke incoming...');    
 
   const getJoke = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/joke`);
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/joke`);    
     setJoke(response.data.msg);
   }
 
