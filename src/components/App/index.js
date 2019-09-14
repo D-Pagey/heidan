@@ -8,8 +8,8 @@ const App = () => {
   const [joke, setJoke] = useState('joke incoming...');    
 
   const getJoke = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/joke`);    
-    setJoke(response.data.msg);
+    const response = await axios.get(`https://heidan.herokuapp.com/joke`);    
+    setJoke(response.data.message);
   }
 
   useEffect(() => {
