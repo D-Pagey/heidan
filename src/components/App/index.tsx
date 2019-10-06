@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../Header';
 import logo from './assets/logo.svg';
 import * as S from './styles';
 import './styles.css';
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
+      <Header />
       <S.Wrapper>
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Heidan</h1>
